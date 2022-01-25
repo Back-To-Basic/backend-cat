@@ -10,10 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib import Path
+from pathlib import Path, PurePath
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = BASE_DIR.parent
+MEDIA_ROOT = PurePath(ROOT_DIR, '.media')
+STATIC_ROOT = PurePath(ROOT_DIR, '.static')
+
+print('MEDIA_ROOT', MEDIA_ROOT)
+print('STATIC_ROOT', STATIC_ROOT)
 
 
 # Quick-start development settings - unsuitable for production
@@ -123,6 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
