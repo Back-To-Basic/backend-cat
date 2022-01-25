@@ -1,10 +1,18 @@
 from django.db import models
 
+__all__ = (
+    'Animal',
+    'AnimalImage',
+)
+
 
 class Animal(models.Model):
     name = models.CharField(verbose_name='이름', max_length=128)
     created = models.DateTimeField(verbose_name='생성일시', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='수정일시', auto_now=True)
+
+    def __str__(self):
+        return f'{self.name}'
 
 
 class AnimalImage(models.Model):
