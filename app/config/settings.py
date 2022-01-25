@@ -15,12 +15,8 @@ from pathlib import Path, PurePath
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 ROOT_DIR = BASE_DIR.parent
-MEDIA_ROOT = PurePath(ROOT_DIR, '.media')
-STATIC_ROOT = PurePath(ROOT_DIR, '.static')
-
-print('MEDIA_ROOT', MEDIA_ROOT)
-print('STATIC_ROOT', STATIC_ROOT)
-
+MEDIA_ROOT = PurePath(BASE_DIR, '.media')
+STATIC_ROOT = PurePath(BASE_DIR, '.static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
