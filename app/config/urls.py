@@ -3,9 +3,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+
+api_urlpatterns = [
+    path('animals/', include('animals.urls')),
+]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('animals/', include('animals.urls'))
+    path('api/', include((api_urlpatterns, 'api'), namespace='api')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
