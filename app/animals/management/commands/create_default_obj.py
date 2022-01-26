@@ -17,7 +17,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         file_names = ['cat_1.jpeg', 'cat_2.jpg', 'cat_3.jpg', 'cat_4.jpg', 'cat_5.jpg']
         cat, _ = Animal.objects.get_or_create(name='고양이')
-        User.objects.create_superuser(username='admin', password='1234')
+        if not User.objects.filter(username='admin').exists():
+            User.objects.create_superuser(username='admin', password='1234')
         for name in file_names:
             print(f'{TEST_DIR}/{name}')
             with open(f'{TEST_DIR}/{name}', 'rb') as f:
