@@ -2,10 +2,12 @@ version: '3'
 
 services:
   django:
+    image: django-cat:1.0
     container_name: django-cat
     build:
       context: .
+      dockerfile: Dockerfile
     ports:
     - "8000:8000"
-    volumes:
-    - .:/srv
+#    volumes:
+#    - .:/srv
